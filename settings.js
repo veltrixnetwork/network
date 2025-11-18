@@ -2,14 +2,14 @@ export const settings = {
     navbar_logo_url: "/logo.png", // reference to the logo image from the `public` folder, or an external url
     hero_image_url: "/logo.png", // reference to the hero image from the `public` folder, or an external url
 
-    server_name: "BlockyMC",
+    server_name: "VeltrixMC",
     server_ip: "hypixel.net", // Leave empty if you dont support Java
 
     server_bedrock_ip: "bedrock.hypixel.net", // Leave empty if you dont support Bedrock
     server_bedrock_port: "19132", // Leave empty if you dont support Bedrock
     bedrock_support: true,
 
-    discord_url: "https://discord.gg/blockymc",
+    discord_url: "https://discord.gg/VeltrixMC",
     discord_invite_code: "buzz", // The invite code for the discord server. e.g. "blockymc" or "eq38J6fe"
 
     community_goal_variant: "bar", // "semicircle", "bar", "ring"
@@ -24,7 +24,7 @@ export const settings = {
     show_login_cta: true, // Show the login call to action on the sidebar
     wiki_link: { // the "Wiki" link in the navbar
         shown: true,
-        url: "https://wiki.blockymc.com"
+        url: "https://wiki.VeltrixMC.com"
     },
     blog_system: {
         enabled: true, // Set to false to hide the blog system from the navbar and home page
@@ -57,7 +57,7 @@ export const settings = {
     voting_links: [
         {
             name: "MC Server List",
-            url: "https://mc-server-list.com/server/blockymc"
+            url: "https://mc-server-list.com/server/VeltrixMC"
         },
         {
             name: "Minecraft Server List",
