@@ -3,14 +3,14 @@ export const settings = {
     hero_image_url: "/logo.png", // reference to the hero image from the `public` folder, or an external url
 
     server_name: "VeltrixMC",
-    server_ip: "hypixel.net", // Leave empty if you dont support Java
+    server_ip: "veltrixnetwork.xyz", // Leave empty if you dont support Java
 
-    server_bedrock_ip: "bedrock.hypixel.net", // Leave empty if you dont support Bedrock
+    server_bedrock_ip: "veltrixnetwork.xyz", // Leave empty if you dont support Bedrock
     server_bedrock_port: "19132", // Leave empty if you dont support Bedrock
     bedrock_support: true,
 
     discord_url: "https://discord.gg/VeltrixMC",
-    discord_invite_code: "buzz", // The invite code for the discord server. e.g. "blockymc" or "eq38J6fe"
+    discord_invite_code: "buzz", // The invite code for the discord server. e.g. "veltrixmc" or "eq38J6fe"
 
     community_goal_variant: "bar", // "semicircle", "bar", "ring"
 
@@ -61,31 +61,31 @@ export const settings = {
         },
         {
             name: "Minecraft Server List",
-            url: "https://minecraft-server-list.com/server/blockymc"
+            url: "https://minecraft-server-list.com/server/veltrixmc"
         },
         {
             name: "Top G Servers",
-            url: "https://topg.org/server/blockymc"
+            url: "https://topg.org/server/veltrixmc"
         },
         {
             name: "Minecraft Servers",
-            url: "https://minecraftservers.org/server/blockymc"
+            url: "https://minecraftservers.org/server/veltrixmc"
         },
         {
             name: "Top Minecraft Servers",
-            url: "https://topminecraftservers.org/server/blockymc"
+            url: "https://topminecraftservers.org/server/veltrixmc"
         },
         {
             name: "Minecraft MP",
-            url: "https://minecraft-mp.com/server/blockymc"
+            url: "https://minecraft-mp.com/server/veltrixmc"
         },
         {
             name: "Minecraft Server List",
-            url: "https://minecraft-server-list.com/server/blockymc"
+            url: "https://minecraft-server-list.com/server/veltrixmc"
         },
         {
             name: "Minecraft Server List",
-            url: "https://minecraft-server-list.com/server/blockymc"
+            url: "https://minecraft-server-list.com/server/veltrixmc"
         },
     ]
 }
