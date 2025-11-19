@@ -74,9 +74,9 @@ export default function Completed() {
     return (
         <Center mt="4rem" mb={{ base: "2rem", sm: "4rem", md: "12rem", lg: "24rem" }}>
             <Stack align="center">
-                <Title order={2} c="bright" ta="center">Your purchase has been completed!</Title>
-                <Text c="dimmed">Use the button below to go back to the store</Text>
-                <Button component={Anchor} href="/" mt="1rem">Back to store</Button>
+                <Title order={2} c="bright" ta="center">¡Su compra se ha completado!</Title>
+                <Text c="dimmed">Utilice el botón de abajo para volver a la tienda.</Text>
+                <Button component={Anchor} href="/" mt="1rem">Volver a la tienda</Button>
             </Stack>
         </Center>
     )
