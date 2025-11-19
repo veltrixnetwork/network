@@ -13,10 +13,10 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata = {
-  title: "Home | " + settings.server_name,
+  title: "Inicio | " + settings.server_name,
   description: "Welcome to the " + settings.server_name + " store!",
   openGraph: {
-    title: "Home | " + settings.server_name,
+    title: "Inicio | " + settings.server_name,
     description: "Welcome to the " + settings.server_name + " store!",
   }
 }
