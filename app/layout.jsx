@@ -115,15 +115,15 @@ export default async function RootLayout({ children }) {
                           <Link href="https://tebex.io" target="_blank">
                             <Image className="invert-icon" src="/tebex_logo.png" alt="Tebex Logo" h={40} /></Link>
                           <Stack gap={0} justify="space-between">
-                            <Text>© {new Date().getFullYear()} {settings.server_name}. All rights reserved.</Text>
-                            <Text size="sm" c="bright">This website's checkout process is owned & operated by Tebex Limited, who handle product fulfilment, billing support and refunds.</Text>
+                            <Text>© {new Date().getFullYear()} {settings.server_name}. Reservados todos los derechos.</Text>
+                            <Text size="sm" c="bright">El proceso de pago de este sitio web es propiedad de Tebex Limited y está operado por ella, que se encarga del cumplimiento de las normas sobre productos, la asistencia en la facturación y los reembolsos.</Text>
                           </Stack>
                         </Group>
                         <div>
                           <Group>
-                            <Anchor c="bright" size="sm" href="https://checkout.tebex.io/impressum" target="_blank">Impressum</Anchor>
-                            <Anchor c="bright" size="sm" href="https://checkout.tebex.io/terms" target="_blank">Terms of Service</Anchor>
-                            <Anchor c="bright" size="sm" href="https://checkout.tebex.io/privacy" target="_blank">Privacy Policy</Anchor>
+                            <Anchor c="bright" size="sm" href="https://checkout.tebex.io/impressum" target="_blank">Información legal</Anchor>
+                            <Anchor c="bright" size="sm" href="https://checkout.tebex.io/terms" target="_blank">Terminos y condiciones</Anchor>
+                            <Anchor c="bright" size="sm" href="https://checkout.tebex.io/privacy" target="_blank">Política de privacidad</Anchor>
                             <ThemeSwitcher />
                           </Group>
                         </div>
