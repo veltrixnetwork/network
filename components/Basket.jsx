@@ -20,9 +20,9 @@ export default function Basket({ user, forceOpen, onClose, hideIcon }) {
 
     return (
         <>
-            {!hideIcon && <ActionIcon onClick={() => setOpened(true)} color="primary" w="3rem" h="3rem" pos="relative">
+            {!hideIcon && <ActionIcon onClick={() => setOpened(true)} color="red" w="3rem" h="3rem" pos="relative">
                 {basket?.data?.packages?.length > 0 && (
-                    <Box ta="center" fw={700} fz="sm" pos="absolute" bottom={4} right={3} w="1rem" h="1.2rem" bg="primary.5" c="#000" radius="50%" style={{ zIndex: 2 }}>
+                    <Box ta="center" fw={700} fz="sm" pos="absolute" bottom={4} right={3} w="1rem" h="1.2rem" bg="red.5" c="#000" radius="50%" style={{ zIndex: 2 }}>
                         {basket?.data?.packages?.length}
                     </Box>
                 )}
@@ -94,7 +94,7 @@ export default function Basket({ user, forceOpen, onClose, hideIcon }) {
                         </Stack>
                         <Text mb="0.8rem" c="bright" size="xl" fw={600}>{t('total', { amount: subtotal })}</Text>
                         <Box>
-                            <Button component={Anchor} href={basket?.data?.links?.checkout || "#"} disabled={!basket?.data?.packages?.length > 0} w="100%" size="lg" color="#0FF0EB">{t('checkout')}</Button>
+                            <Button component={Anchor} href={basket?.data?.links?.checkout || "#"} disabled={!basket?.data?.packages?.length > 0} w="100%" size="lg" color="red">{t('checkout')}</Button>
                         </Box>
                     </div>
                 </Stack>
@@ -129,10 +129,10 @@ function BasketItem({ item, basketIdent }) {
                 <Group wrap="nowrap" justify="space-between" gap="0.4rem">
                     <Text c="bright" size="xl" fw={600}>{item.name}</Text>
                     <Group gap="0.4rem">
-                        <Badge size="lg" variant="light" color="primary.5">
+                        <Badge size="lg" variant="light" color="red.5">
                             <NumberFormatter value={item.in_basket.price * item.in_basket.quantity} />
                         </Badge>
-                        <Badge size="lg" c="#000" color="primary">
+                        <Badge size="lg" c="#000" color="red">
                             x{item.in_basket.quantity}
                         </Badge>
                         <Button.Group>
@@ -140,7 +140,7 @@ function BasketItem({ item, basketIdent }) {
                                 <TbChevronDown color="var(--mantine-color-red-text)" />
                             </Button>
                             <Button loading={loading} h="1.6rem" p="0 0.2rem" variant="default" onClick={() => handleUpdateQuantity(item.in_basket.quantity + 1)}>
-                                <TbChevronUp color="var(--mantine-color-teal-text)" />
+                                <TbChevronUp color="var(--mantine-color-red-text)" />
                             </Button>
                         </Button.Group>
                     </Group>
