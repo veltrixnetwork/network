@@ -5,8 +5,8 @@ import { discordRules,  serverRules, settings } from "../../../settings";
 import { useTranslations } from 'next-intl';
 
 export const metadata = {
-    title: "Rules | " + settings.server_name,
-    description: "Please read and follow all rules to ensure a safe and enjoyable experience for everyone."
+    title: "Reglas | " + settings.server_name,
+    description: "Por favor, lea y siga todas las normas para garantizar una experiencia segura y agradable para todos."
 }
 
 export default function RulesPage() {
