@@ -36,8 +36,8 @@ export default function AddToCartButton({ package_id, quantity = 1, children, ex
                 message: data.message,
                 styles: {
                     root: {
-                        backgroundColor: "var(--mantine-color-primary-5)",
-                        boxShadow: "0px 2px 0px 1px " + darken("var(--mantine-color-primary-5)", 0.5),
+                        backgroundColor: "var(--mantine-color-red-5)",
+                        boxShadow: "0px 2px 0px 1px " + darken("var(--mantine-color-red-5)", 0.5),
                     },
                     title: {
                         color: "#000",
