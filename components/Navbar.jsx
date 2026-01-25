@@ -107,7 +107,7 @@ export default function Navbar() {
                                     <Basket user={user} />
                                 )}
                                 {!loading && (
-                                    <Button bg="#7b3fe4" h="3.1rem" leftSection={<TbUserFilled />} size="lg" variant="login" onClick={openLoginModal}>
+                                    <Button bg="primary" h="3.1rem" leftSection={<TbUserFilled />} size="lg" variant="login" onClick={openLoginModal}>
                                         <Text fw={600}>{!user ? t('login') : user?.name}</Text>
                                     </Button>
                                 )}
