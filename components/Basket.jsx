@@ -20,9 +20,9 @@ export default function Basket({ user, forceOpen, onClose, hideIcon }) {
 
     return (
         <>
-            {!hideIcon && <ActionIcon onClick={() => setOpened(true)} color="red" w="3rem" h="3rem" pos="relative">
+            {!hideIcon && <ActionIcon onClick={() => setOpened(true)} color="cyan" w="3rem" h="3rem" pos="relative">
                 {basket?.data?.packages?.length > 0 && (
-                    <Box ta="center" fw={700} fz="sm" pos="absolute" bottom={4} right={3} w="1rem" h="1.2rem" bg="red.5" c="#000" radius="50%" style={{ zIndex: 2 }}>
+                    <Box ta="center" fw={700} fz="sm" pos="absolute" bottom={4} right={3} w="1rem" h="1.2rem" bg="dark.7" c="#000" radius="50%" style={{ zIndex: 2 }}>
                         {basket?.data?.packages?.length}
                     </Box>
                 )}
