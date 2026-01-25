@@ -38,7 +38,7 @@ export default function BlogClient({ posts }) {
                                     )}
                                     <Title order={4} fz="1rem" mb="xs" style={{ lineHeight: 1.2 }}>{t('latest')}: {latest.title}</Title>
                                     <Text c="dimmed" fz="sm" mb="md" lineClamp={2} style={{ lineHeight: 1.5 }}>{latest.excerpt}</Text>
-                                    <Button component="a" href={`/blog/${latest.slug}`} target="_blank" size="sm" fullWidth variant="filled" colour="primary">{t('readArticle')}</Button>
+                                    <Button component="a" href={`/blog/${latest.slug}`} target="_blank" size="sm" fullWidth variant="filled" colour="cyan">{t('readArticle')}</Button>
                                 </Card>
                             );
                         })()}
