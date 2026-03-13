@@ -2,7 +2,7 @@ export const settings = {
     navbar_logo_url: "/logo.png", // reference to the logo image from the `public` folder, or an external url
     hero_image_url: "/logo.png", // reference to the hero image from the `public` folder, or an external url
 
-    server_name: "EventriCraft",
+    server_name: "EventiCraft",
     server_ip: "mc.eventicraft.com", // Leave empty if you dont support Java
 
     server_bedrock_ip: "mc.eventicraft.com", // Leave empty if you dont support Bedrock
