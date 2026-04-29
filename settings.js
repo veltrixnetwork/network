@@ -10,7 +10,7 @@ export const settings = {
     bedrock_support: true,
 
     discord_url: "https://discord.gg/qjuJTP7Arz",
-    discord_invite_code: "buzz", // The invite code for the discord server. e.g. "veltrixmc" or "eq38J6fe"
+    discord_invite_code: "qjuJTP7Arz", // The invite code for the discord server. e.g. "veltrixmc" or "eq38J6fe"
 
     community_goal_variant: "bar", // "semicircle", "bar", "ring"
 
