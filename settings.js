@@ -6,7 +6,7 @@ export const settings = {
     server_ip: "mc.eventicraft.com", // Leave empty if you dont support Java
 
     server_bedrock_ip: "mc.eventicraft.com", // Leave empty if you dont support Bedrock
-    server_bedrock_port: "19132", // Leave empty if you dont support Bedrock
+    server_bedrock_port: "25565", // Leave empty if you dont support Bedrock
     bedrock_support: true,
 
     discord_url: "https://discord.gg/qjuJTP7Arz",
