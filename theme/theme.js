@@ -5,7 +5,7 @@ import { settings } from "../settings";
 
 export const theme = createTheme({
   colors: {
-    primary: colorsTuple("#7B2CBF")
+    primary: colorsTuple("#C77DFF")
   },
   defaultRadius: 10,
   components: {
