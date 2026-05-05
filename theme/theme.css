@@ -35,7 +35,7 @@ html {
 
 .navbar-glass {
     box-shadow: 0px 2px 0px 3px light-dark(#c0c0c0, #11131b);
-    background: light-dark(rgba(255, 255, 255, 0.6), rgba(35, 35, 61, 0.6));
+    background: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6));
     backdrop-filter: blur(18px) saturate(160%);
     -webkit-backdrop-filter: blur(18px) saturate(160%);
     border-bottom: 1.5px solid light-dark(rgba(200, 200, 200, 0.18), rgba(255, 255, 255, 0.08));
@@ -112,7 +112,7 @@ html {
 }
 
 .mantine-Paper-root {
-    background-color: light-dark(#ebebeb, #1c1f30);
+    background-color: light-dark(#ebebeb, #0f0f0f);
     transition: all 0.1s ease-in-out;
     box-shadow: 0px 2px 0px 3px light-dark(#c0c0c0, #242946);
     position: relative;
@@ -247,7 +247,7 @@ html {
 }
 
 .drawer-content {
-    background-color: light-dark(#fff, #282C42) !important;
+    background-color: light-dark(#fff, #000000) !important;
 }
 
 .invert-icon {
