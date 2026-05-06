@@ -39,185 +39,182 @@ export const revalidate = 0;
 export default async function StoreLayout({ children }) {
     const t = await getTranslations("Store");
 
-    // 🔥 PROTEGIDO CONTRA CRASH
+    // 🔥 PROTEGIDO TOTAL (NO CRASH)
     const [communityGoal, topDonator, allCategories] = await Promise.all([
         getCommunityGoal().catch(() => null),
         getTopDonator().catch(() => ({ name: "", id: "", total: 0 })),
         getCategories().catch(() => [])
     ]);
 
-    const rankTableExists = fs.existsSync(
-        path.join(process.cwd(), "components", "RanksTable.jsx")
-    );
+    // 🔥 SAFE SETTINGS (CLAVE)
+    const topCategories = settings?.top_categories || [];
+    const featuredCategories = settings?.featured_categories || [];
+
+    // 🔥 FS PROTEGIDO
+    let rankTableExists = false;
+    try {
+        rankTableExists = fs.existsSync(
+            path.join(process.cwd(), "components", "RanksTable.jsx")
+        );
+    } catch {
+        rankTableExists = false;
+    }
 
     return (
-        <>
-            <FadeIn>
-                <Container pos="relative" style={{ zIndex: 1 }}>
+        <FadeIn>
+            <Container pos="relative" style={{ zIndex: 1 }}>
 
-                    {/* CATEGORÍAS TOP */}
-                    <SimpleGrid cols={{ base: 1, sm: 2, md: 3, lg: 4 }}>
-                        {(allCategories || [])
-                            .filter(category =>
-                                settings.top_categories.includes(category.id.toString())
-                            )
-                            .map((category) => (
-                                <Anchor
-                                    component={Link}
-                                    c="bright"
-                                    href={`/store/${category.slug}`}
-                                    key={category.id}
+                {/* CATEGORÍAS TOP */}
+                <SimpleGrid cols={{ base: 1, sm: 2, md: 3, lg: 4 }}>
+                    {(allCategories || [])
+                        .filter(category =>
+                            topCategories.includes(category?.id?.toString?.() || "")
+                        )
+                        .map((category) => (
+                            <Anchor
+                                component={Link}
+                                c="bright"
+                                href={`/store/${category.slug}`}
+                                key={category?.id}
+                            >
+                                <Paper
+                                    className={
+                                        "hover-card" +
+                                        (topCategories.includes(category?.id?.toString?.() || "")
+                                            ? " featured-category"
+                                            : "")
+                                    }
+                                    p="1.4rem"
                                 >
-                                    <Paper
-                                        className={
-                                            "hover-card" +
-                                            (settings.top_categories.includes(
-                                                category.id.toString()
-                                            )
-                                                ? " featured-category"
-                                                : "")
-                                        }
-                                        p="1.4rem"
-                                    >
-                                        {settings.featured_categories.includes(
-                                            category.id.toString()
-                                        ) && (
-                                            <Paper
-                                                className="featured-category-label"
-                                                px="0.4rem"
-                                                fz="1rem"
-                                            >
-                                                {settings.featured_categories_label}
-                                            </Paper>
-                                        )}
+                                    {featuredCategories.includes(
+                                        category?.id?.toString?.() || ""
+                                    ) && (
+                                        <Paper
+                                            className="featured-category-label"
+                                            px="0.4rem"
+                                            fz="1rem"
+                                        >
+                                            {settings?.featured_categories_label || "FEATURED"}
+                                        </Paper>
+                                    )}
 
-                                        <Group justify="center" wrap="nowrap">
-                                            <Image
-                                                src={category.image_url || "/placeholder.png"}
-                                                alt={category.name}
-                                                w={60}
-                                            />
-                                            <div>
-                                                <Title fz="2rem" tt="uppercase" order={2}>
-                                                    {category.name}
-                                                </Title>
-                                                <Text>{category.description}</Text>
-                                            </div>
-                                        </Group>
-                                    </Paper>
-                                </Anchor>
-                            ))}
-                    </SimpleGrid>
-
-                    {/* GRID PRINCIPAL */}
-                    <Grid columns={24} gutter="2rem" mt="2rem">
-                        <GridCol span={{ base: 24, sm: 12, md: 8, lg: 6 }}>
-
-                            {settings.show_login_cta && <LoginCTA />}
-
-                            <Paper mb="1rem" p="1rem">
-                                <CategoriesSidebar categories={allCategories || []} />
-                            </Paper>
-
-                            {/* RANKS */}
-                            {rankTableExists && (
-                                <Paper mb="1rem" p="1rem">
-                                    <Anchor
-                                        component={Link}
-                                        c="bright"
-                                        href="/ranks"
-                                    >
-                                        <Group wrap="nowrap">
-                                            <Image
-                                                src="/gift-box.png"
-                                                alt="Ranks comparison"
-                                                w={42}
-                                            />
-                                            <div>
-                                                <Title fz="1.3rem" tt="uppercase" order={2}>
-                                                    {t("ranksComparison")}
-                                                </Title>
-                                                <Text size="sm">
-                                                    {t("compareRanksAndFeatures")}
-                                                </Text>
-                                            </div>
-                                        </Group>
-                                    </Anchor>
-                                </Paper>
-                            )}
-
-                            {/* COMMUNITY GOAL */}
-                            {communityGoal && (
-                                <Paper mb="1rem" p="1rem">
-                                    <Group mb="1rem" gap="0.8rem">
-                                        <TbTarget style={{ marginTop: "-2px" }} size="1.8rem" />
-                                        <Title order={2} c="bright">
-                                            {t("communityGoal")}
-                                        </Title>
-                                    </Group>
-                                    <CommunityGoal goal={communityGoal} />
-                                </Paper>
-                            )}
-
-                            {/* TOP DONATOR */}
-                            {topDonator?.id && (
-                                <Paper mb="1rem" p="1rem 1rem 0 1rem">
-                                    <Group mb="1rem" gap="0.8rem">
-                                        <TbTrophy style={{ marginTop: "-2px" }} size="1.8rem" />
-                                        <Title order={2} c="bright">
-                                            {t("topDonator")}
-                                        </Title>
-                                    </Group>
-
-                                    <Group>
+                                    <Group justify="center" wrap="nowrap">
                                         <Image
-                                            src={
-                                                "https://visage.surgeplay.com/bust/128/" +
-                                                topDonator.name
-                                            }
-                                            alt={topDonator.name}
-                                            w={128}
+                                            src={category?.image_url || "/placeholder.png"}
+                                            alt={category?.name || "category"}
+                                            w={60}
                                         />
                                         <div>
-                                            <Text size="xl" fw={700} c="bright">
-                                                {topDonator.name}
-                                            </Text>
-                                            <Text size="xl" c="bright">
-                                                <NumberFormatter value={topDonator.total} />
-                                            </Text>
+                                            <Title fz="2rem" tt="uppercase" order={2}>
+                                                {category?.name || "Unknown"}
+                                            </Title>
+                                            <Text>{category?.description || ""}</Text>
                                         </div>
                                     </Group>
                                 </Paper>
-                            )}
+                            </Anchor>
+                        ))}
+                </SimpleGrid>
 
-                            {/* SOPORTE */}
-                            {settings.show_support_widget && (
-                                <Paper mb="1rem" p="1rem">
-                                    <Title c="bright" mb="0.6rem" order={2}>
-                                        {t("needHelp")}
+                {/* GRID */}
+                <Grid columns={24} gutter="2rem" mt="2rem">
+                    <GridCol span={{ base: 24, sm: 12, md: 8, lg: 6 }}>
+
+                        {settings?.show_login_cta && <LoginCTA />}
+
+                        <Paper mb="1rem" p="1rem">
+                            <CategoriesSidebar categories={allCategories || []} />
+                        </Paper>
+
+                        {/* RANKS */}
+                        {rankTableExists && (
+                            <Paper mb="1rem" p="1rem">
+                                <Anchor component={Link} c="bright" href="/ranks">
+                                    <Group wrap="nowrap">
+                                        <Image src="/gift-box.png" alt="ranks" w={42} />
+                                        <div>
+                                            <Title fz="1.3rem" tt="uppercase" order={2}>
+                                                {t("ranksComparison")}
+                                            </Title>
+                                            <Text size="sm">
+                                                {t("compareRanksAndFeatures")}
+                                            </Text>
+                                        </div>
+                                    </Group>
+                                </Anchor>
+                            </Paper>
+                        )}
+
+                        {/* COMMUNITY GOAL */}
+                        {communityGoal && (
+                            <Paper mb="1rem" p="1rem">
+                                <Group mb="1rem" gap="0.8rem">
+                                    <TbTarget size="1.8rem" />
+                                    <Title order={2} c="bright">
+                                        {t("communityGoal")}
                                     </Title>
-                                    <Text mb="1rem" size="lg">
-                                        {t("joinDiscordForHelp")}
-                                    </Text>
-                                    <Button
-                                        component={Link}
-                                        leftSection={<FaDiscord size="1rem" />}
-                                        href={settings.discord_url}
-                                        target="_blank"
-                                    >
-                                        {t("joinDiscord")}
-                                    </Button>
-                                </Paper>
-                            )}
-                        </GridCol>
+                                </Group>
+                                <CommunityGoal goal={communityGoal} />
+                            </Paper>
+                        )}
 
-                        {/* CONTENIDO */}
-                        <GridCol span={{ base: 24, sm: 12, md: 16, lg: 18 }}>
-                            {children}
-                        </GridCol>
-                    </Grid>
-                </Container>
-            </FadeIn>
-        </>
+                        {/* TOP DONATOR */}
+                        {topDonator?.id && (
+                            <Paper mb="1rem" p="1rem 1rem 0 1rem">
+                                <Group mb="1rem" gap="0.8rem">
+                                    <TbTrophy size="1.8rem" />
+                                    <Title order={2} c="bright">
+                                        {t("topDonator")}
+                                    </Title>
+                                </Group>
+
+                                <Group>
+                                    <Image
+                                        src={
+                                            "https://visage.surgeplay.com/bust/128/" +
+                                            topDonator?.name
+                                        }
+                                        alt={topDonator?.name}
+                                        w={128}
+                                    />
+                                    <div>
+                                        <Text size="xl" fw={700} c="bright">
+                                            {topDonator?.name}
+                                        </Text>
+                                        <Text size="xl" c="bright">
+                                            <NumberFormatter value={topDonator?.total || 0} />
+                                        </Text>
+                                    </div>
+                                </Group>
+                            </Paper>
+                        )}
+
+                        {/* SOPORTE */}
+                        {settings?.show_support_widget && (
+                            <Paper mb="1rem" p="1rem">
+                                <Title c="bright" mb="0.6rem" order={2}>
+                                    {t("needHelp")}
+                                </Title>
+                                <Text mb="1rem" size="lg">
+                                    {t("joinDiscordForHelp")}
+                                </Text>
+                                <Button
+                                    component={Link}
+                                    leftSection={<FaDiscord size="1rem" />}
+                                    href={settings.discord_url}
+                                    target="_blank"
+                                >
+                                    {t("joinDiscord")}
+                                </Button>
+                            </Paper>
+                        )}
+                    </GridCol>
+
+                    <GridCol span={{ base: 24, sm: 12, md: 16, lg: 18 }}>
+                        {children}
+                    </GridCol>
+                </Grid>
+            </Container>
+        </FadeIn>
     );
 }
